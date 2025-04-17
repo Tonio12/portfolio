@@ -52,11 +52,10 @@ export default function About() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h1 className="text-4xl font-bold tracking-tight mb-6 text-[#b69121] dark:text-[#edc531]">
+        <div className="space-y-6 text-lg text-muted-foreground max-w-2xl mx-auto">
+           <h1 className="text-4xl font-bold tracking-tight mb-6 text-[#b69121] dark:text-[#edc531]">
           About Me
         </h1>
-        
-        <div className="space-y-6 text-lg text-muted-foreground">
           <p>
             My name is Antonio Nelson. I am from Ghana. Ever since I was a kid, I loved mathematics. 
             I loved challenges and solving complex problems.
@@ -75,7 +74,7 @@ export default function About() {
         {/* Photo Gallery */}
         <Photos />
         
-        {/* Two Sections Side by Side */}
+        {/*  Sections Side by Side */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
           {/* Work Experience */}
           <motion.div 
@@ -112,9 +111,18 @@ export default function About() {
               </div>
             </div>
             
-            <Button className="flex items-center bg-[#b69121] hover:bg-[#b69121]/90 text-white">
-              <Download className="mr-2 h-4 w-4" />
-              Download CV
+            <Button 
+              className="flex items-center bg-[#b69121] hover:bg-[#b69121]/90 text-white"
+              asChild
+            >
+              <a 
+                href="https://drive.google.com/file/d/16AdC2qb2cpa6N8RlzaPgEt-XXBAqkgIO/view?usp=sharing" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <Download className="mr-2 h-4 w-4" />
+                Download CV
+              </a>
             </Button>
           </motion.div>
           
@@ -127,19 +135,19 @@ export default function About() {
           >
             <h2 className="text-2xl font-semibold mb-4">Connect With Me</h2>
             <div className="space-y-4">
-              <Link href="https://github.com" className="flex items-center text-muted-foreground hover:text-foreground transition-colors">
+              <Link href="https://github.com/Tonio12" target="_blank" rel="noopener noreferrer" className="flex items-center text-muted-foreground hover:text-foreground transition-colors">
                 <Github className="mr-2 h-5 w-5" />
                 <span>GitHub</span>
               </Link>
-              <Link href="https://linkedin.com" className="flex items-center text-muted-foreground hover:text-foreground transition-colors">
+              <Link href="https://www.linkedin.com/in/jaf-nelson/" target="_blank" rel="noopener noreferrer" className="flex items-center text-muted-foreground hover:text-foreground transition-colors">
                 <Linkedin className="mr-2 h-5 w-5" />
                 <span>LinkedIn</span>
               </Link>
-              <Link href="https://twitter.com" className="flex items-center text-muted-foreground hover:text-foreground transition-colors">
+              <Link href="https://x.com/An_toni1" target="_blank" rel="noopener noreferrer" className="flex items-center text-muted-foreground hover:text-foreground transition-colors">
                 <Twitter className="mr-2 h-5 w-5" />
                 <span>Twitter</span>
               </Link>
-              <Link href="mailto:antonio@example.com" className="flex items-center text-muted-foreground hover:text-foreground transition-colors">
+              <Link href="mailto:nelson.antonio.an@gmail.com" className="flex items-center text-muted-foreground hover:text-foreground transition-colors">
                 <Mail className="mr-2 h-5 w-5" />
                 <span>Email</span>
               </Link>
@@ -188,7 +196,8 @@ export default function About() {
                     "JavaScript", 
                     "Node.js", 
                     "Express.js", 
-                    "React/Next.js", 
+                    "React/Next.js",
+                    "React Native",
                     "MongoDB", 
                     "SQL", 
                     "GraphQL", 
