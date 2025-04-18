@@ -1,0 +1,11 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Don't index these paths
+Disallow: /api/
+Disallow: /_next/
+Disallow: /*?
+
+# Sitemap
+Sitemap: https://www.antonionelson.tech/sitemap.xml 

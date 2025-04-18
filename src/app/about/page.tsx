@@ -8,11 +8,11 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 
 // Image imports
-const image1 = "/images/selfie.webp";
-const image2 = "/images/golf.webp";
-const image3 = "/images/team.webp";
+const image1 = "/images/formal.webp";
+const image2 = "/images/family.webp";
+const image3 = "/images/golf.webp";
 const image4 = "/images/zebra.webp";
-const image5 = "/images/young.webp";
+const image5 = "/images/food.webp";
 
 function Photos() {
   const rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2'];

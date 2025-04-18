@@ -1,10 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Code, Sparkles, Palette, MousePointer, ChevronRight } from "lucide-react";
+import { ArrowRight, Code, Sparkles, Palette, MousePointer, ChevronRight, Mail } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
+import { JsonLd, createPersonStructuredData } from "@/components/json-ld";
+import routes from "@/lib/routes";
 
 // Custom animated gradient text component
 function CustomGradientText({ 
@@ -29,6 +31,22 @@ function CustomGradientText({
 export default function Home() {
   return (
     <div className="min-h-screen">
+      {/* JSON-LD Structured Data */}
+      <JsonLd 
+        data={createPersonStructuredData(
+          "Antonio Nelson",
+          "Software Engineer",
+          "Software engineer specializing in fullstack development, creating seamless experiences across platforms with modern technologies.",
+          undefined,
+          undefined,
+          [
+            routes.social.github,
+            routes.social.linkedin,
+            routes.social.twitter
+          ]
+        )} 
+      />
+      
       {/* Hero Section */}
       <section className="py-20">
         <div className="container px-4 md:px-6">
@@ -84,18 +102,20 @@ export default function Home() {
               
               <div className="flex flex-col sm:flex-row gap-4 mt-4">
                 <Link 
-                  href="/portfolio" 
+                  href={routes.portfolio}
                   className="inline-flex h-10 items-center justify-center rounded-md bg-[#b69121] px-8 text-sm font-medium text-white shadow transition-colors hover:bg-[#b69121]/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#b69121]"
                 >
                   View My Work
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
-                <Link 
-                  href="/contact" 
+                <a 
+                  href={`mailto:${routes.email}`}
                   className="inline-flex h-10 items-center justify-center rounded-md border border-[#b69121]/30 bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-[#b69121]/10 hover:text-[#b69121] focus-visible:outline-none focus-visible:ring-1 dark:border-[#b69121]/20 dark:hover:bg-[#b69121]/10 dark:hover:text-[#edc531]"
+                  rel="noopener noreferrer"
                 >
+                  <Mail className="mr-2 h-4 w-4" />
                   Get in Touch
-                </Link>
+                </a>
               </div>
             </motion.div>
             

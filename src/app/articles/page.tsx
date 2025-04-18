@@ -4,6 +4,10 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, BookOpen, Calendar, ExternalLink } from "lucide-react";
 import { useState } from "react";
+import { JsonLd, createArticleListStructuredData } from "@/components/json-ld";
+
+// Metadata and SEO handled in separate file since this is a client component
+// See metadata.ts in the same directory
 
 interface ArticleTag {
   name: string;
@@ -132,6 +136,9 @@ export default function Articles() {
 
   return (
     <div className="container py-24 mx-auto">
+      {/* JSON-LD Structured Data */}
+      <JsonLd data={createArticleListStructuredData(articles)} />
+      
       <motion.div 
         className="max-w-6xl mx-auto"
         initial={{ opacity: 0, y: 20 }}

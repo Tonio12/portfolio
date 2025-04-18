@@ -1,8 +1,9 @@
-import type { Metadata } from "next";
 import { Roboto, Noto_Serif } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Header } from "@/components/header";
+import { defaultMetadata } from "@/lib/seo";
+import { Analytics } from "@/components/analytics";
 
 const notoSerif = Noto_Serif({
   variable: "--font-heading",
@@ -16,10 +17,7 @@ const roboto = Roboto({
   weight: ["300", "400", "500", "700"],
 });
 
-export const metadata: Metadata = {
-  title: "Fitozo Nelson",
-  description: "Personal portfolio website",
-};
+export const metadata = defaultMetadata;
 
 export default function RootLayout({
   children,
@@ -28,6 +26,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Preconnect to external domains for performance */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
       <body
         className={`${notoSerif.variable} ${roboto.variable} antialiased min-h-screen`}
       >
@@ -42,6 +45,9 @@ export default function RootLayout({
               {children}
             </main>
           </ThemeProvider>
+          
+        {/* Client-side analytics */}
+        <Analytics />
       </body>
     </html>
   );
